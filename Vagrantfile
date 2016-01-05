@@ -16,6 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
   end
   config.vm.provision :shell, path:"bootstrap.sh"
-  config.vm.network :forwarded_port, host: 4567, guest: 80
+  config.vm.network :forwarded_port, host: 8080, guest: 80
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 end
